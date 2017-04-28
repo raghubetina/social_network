@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Sender</dt>
-      <dd><%= @follow_request.sender_id %></dd>
+      <dd>
+        <% if @follow_request.sender.present? %>
+          <a href="/users/<%= @follow_request.sender_id %>">
+            <%= @follow_request.sender.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Recipient</dt>
-      <dd><%= @follow_request.recipient_id %></dd>
+      <dd>
+        <% if @follow_request.recipient.present? %>
+          <a href="/users/<%= @follow_request.recipient_id %>">
+            <%= @follow_request.recipient.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
