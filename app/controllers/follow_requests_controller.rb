@@ -10,7 +10,7 @@ class FollowRequestsController < ApplicationController
   end
 
   def index
-    @follow_requests = FollowRequest.all
+    @follow_requests = FollowRequest.page(params[:page]).per(10)
 
     render("follow_requests/index.html.erb")
   end
